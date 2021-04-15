@@ -1,0 +1,34 @@
+body {
+}
+.todo {
+  background-color: skyblue;
+  color: white;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  border: 4px solid rgb(0, 0, 0, 0.6);
+  border-radius: 20px;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.4);
+  width: 350px;
+  height: 600px;
+}
+.title {
+  width: 100%;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.6);
+  padding-bottom: 20px;
+  margin-bottom: 0px;
+}
+.todo_header {
+}
+.clock {
+  margin-bottom: 0px;
+}
+.days {
+  margin-top: 0px;
+}
+.todo_enter {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
