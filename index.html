@@ -12,8 +12,17 @@
       <h1 class="title">To Do list ✅</h1>
       <div class="todo_header">
         <h1 class="clock">00:00</h1>
-        <h2 class="days">0000.00.00.day</h2>
+        <h4 class="days">0000.00.00.day</h4>
       </div>
+      <form class="name_form">
+        <input
+          class="name_write"
+          type="text"
+          placeholder="Write your name!"
+          required
+        />
+      </form>
+      <h3 class="users_name"></h3>
       <div class="todo_list">
         <form class="todo_enter">
           <input
@@ -22,10 +31,11 @@
             placeholder="Write your ToDo!!"
             required
           />
-          <button class="enter_btn">Enter</button>
+          <button class="enter_btn">✔</button>
         </form>
       </div>
     </div>
-    <script src="index.js"></script>
+    <script src="clock.js"></script>
+    <script src="usersName.js"></script>
   </body>
 </html>
