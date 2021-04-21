@@ -3,36 +3,53 @@ const toDoForm = document.querySelector(".todo_form"),
   toDoList = document.querySelector(".todo_list");
 
 const TODOS_LS = "ToDos";
+const FINISH_LS = "Finished";
 
 let toDos = [];
+// toDos array 가 deleteToDos FN 에서 cleanTodos 로 새로 저장 되어야 하기 때문에.
 
 let idNumbers = 1;
 
-function deleteTodos(event) {
+function deleteToDos(event) {
   const btn = event.target;
   const li = btn.parentNode;
   toDoList.removeChild(li);
-  const cleanTods = toDos.filter(function (ToDos) {
+  const cleanToDos = toDos.filter(function (ToDos) {
     return ToDos.id !== parseInt(li.id);
   });
-  toDos = cleanTods;
-  saveTodos();
+  toDos = cleanToDos;
+  saveToDos();
 }
 
-function saveTodos() {
+function finishedToDos(event) {
+  const btn = event.target;
+  const li = btn.parentNode;
+  li.style.textDecoration = "line-through";
+  li.style.color = "gray";
+  saveToDos();
+}
+
+/*function saveFinishedToDoos() {
+  localStorage.setItem(FINISH_LS, JSON.stringify(toDos))
+}*/
+function saveToDos() {
   localStorage.setItem(TODOS_LS, JSON.stringify(toDos));
 }
 
-function createTodo(text) {
+function createToDos(text) {
   const li = document.createElement("li");
   const span = document.createElement("span");
   const dltBtn = document.createElement("button");
+  const checkBtn = document.createElement("button");
   const newId = idNumbers++;
   span.innerText = text;
   dltBtn.innerText = "❌";
-  dltBtn.addEventListener("click", deleteTodos);
+  dltBtn.addEventListener("click", deleteToDos);
+  checkBtn.innerText = "✔";
+  checkBtn.addEventListener("click", finishedToDos);
   li.appendChild(span);
   li.appendChild(dltBtn);
+  li.appendChild(checkBtn);
   li.id = newId;
   toDoList.appendChild(li);
   const toDosObj = {
@@ -40,28 +57,35 @@ function createTodo(text) {
     id: newId,
   };
   toDos.push(toDosObj);
-  saveTodos();
+  saveToDos();
 }
 
 function handleSubmit(event) {
   event.preventDefault();
-  const currnetValue = toDoInput.value;
-  createTodo(currnetValue);
+  const currentValue = toDoInput.value;
+  createToDos(currentValue);
   toDoInput.value = "";
 }
 
-function loadTodos() {
-  const loadTodos = localStorage.getItem(TODOS_LS);
-  if (loadTodos !== null) {
-    const parseTodos = JSON.parse(loadTodos);
-    parseTodos.forEach(function (ToDos) {
-      createTodo(ToDos.text);
+/*function handleFinish(event) {
+  event.preventDefault();
+  const finishedValue = event.target
+
+function loadFinishedToDos() {
+  const loadFinishedToDos = localStorage.getItem(FINISH_LS);
+}*/
+function loadToDos() {
+  const loadToDos = localStorage.getItem(TODOS_LS);
+  if (loadToDos !== null) {
+    const parsedToDos = JSON.parse(loadToDos);
+    parsedToDos.forEach(function (ToDos) {
+      createToDos(ToDos.text);
     });
   }
 }
 
 function init() {
-  loadTodos();
+  loadToDos();
   toDoForm.addEventListener("submit", handleSubmit);
 }
 init();
