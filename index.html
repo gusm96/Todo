@@ -10,6 +10,27 @@
   <body>
     <div class="todo">
       <h1 class="title">To Do list ✅</h1>
+      <h3 class="users_name"></h3>
+      <form class="todo_form">
+        <input
+          class="todo_write"
+          type="text"
+          placeholder="Write your ToDo!!"
+          required
+        />
+      </form>
+      <div class="todo_list-form">
+        <h4>Pending📚</h4>
+        <ul class="todo_list"></ul>
+      </div>
+      <div class="finish_list-form">
+        <h4>Finished😆</h4>
+        <ul class="finish_list"></ul>
+      </div>
+    </div>
+    <div class="weather-date">
+      <div class="location"></div>
+      <div class="temp"></div>
       <div class="todo_header">
         <h1 class="clock">00:00</h1>
         <h4 class="days">0000.00.00.day</h4>
@@ -22,22 +43,6 @@
           required
         />
       </form>
-      <h3 class="users_name"></h3>
-      <form class="todo_form">
-        <input
-          class="todo_write"
-          type="text"
-          placeholder="Write your ToDo!!"
-          required
-        />
-      </form>
-      <div class="todo_list-form">
-        <ul class="todo_list"></ul>
-      </div>
-    </div>
-    <div class="weather-date">
-      <div class="location"></div>
-      <div class="temp"></div>
     </div>
 
     <script src="clock.js"></script>

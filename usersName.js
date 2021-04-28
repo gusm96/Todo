@@ -26,7 +26,7 @@ function askForName() {
 function greeting(text) {
   nameForm.classList.remove(SHOWING_CN);
   usersName.classList.add(SHOWING_CN);
-  usersName.innerText = `Hello, ${text}`;
+  usersName.innerText = `🖐Hello, ${text}`;
 }
 function loadUsersName() {
   const cuurentUser = localStorage.getItem(USERS_LS);
